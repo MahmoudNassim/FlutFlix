@@ -35,10 +35,13 @@ class TrendingSlider extends StatelessWidget {
             child: SizedBox(
               height: MediaQuery.of(context).size.height / 2,
               width: MediaQuery.of(context).size.width,
-              child: Image.network(
-                  filterQuality: FilterQuality.high,
-                  fit: BoxFit.cover,
-                  '${Constants.imagePath}${snapshot.data[itemIndex].posterPath}'),
+              child: Hero(
+                tag: '${snapshot.data[itemIndex].id}',
+                child: Image.network(
+                    filterQuality: FilterQuality.high,
+                    fit: BoxFit.cover,
+                    '${Constants.imagePath}${snapshot.data[itemIndex].posterPath}'),
+              ),
             ),
           ),
         ),

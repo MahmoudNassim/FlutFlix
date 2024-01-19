@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:moviesapp/screens/home_screen.dart';
 
 void main() {
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.black,
       ),
       themeMode: ThemeMode.dark,
-      home: HomeScreen(),
+      home: const HomeScreen(),
     );
   }
 }

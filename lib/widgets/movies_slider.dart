@@ -24,17 +24,20 @@ class MoviesSlider extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                     builder: (context) => DetailsScreen(
-                          movie: snapshot.data[index],
+                          movie: snapshot.data[index], 
                         ))),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: SizedBox(
                 height: 200,
                 width: 150,
-                child: Image.network(
-                    filterQuality: FilterQuality.high,
-                    fit: BoxFit.cover,
-                    '${Constants.imagePath}${snapshot.data[index].posterPath}'),
+                child: Hero(
+                  tag: '${snapshot.data[index].id}',
+                  child: Image.network(
+                      filterQuality: FilterQuality.high,
+                      fit: BoxFit.cover,
+                      '${Constants.imagePath}${snapshot.data[index].posterPath}'),
+                ),
               ),
             ),
           ),

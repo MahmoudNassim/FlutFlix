@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:moviesapp/api/api.dart';
 import 'package:moviesapp/models/movie.dart';
-import 'package:moviesapp/screens/details_screen.dart';
 import 'package:moviesapp/widgets/movies_slider.dart';
 import 'package:moviesapp/widgets/trending_slider.dart';
 
@@ -14,13 +13,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late Future<List<Movie>> trendyMovie;
+   late Future<List<Movie>> trendyMovie;
   late Future<List<Movie>> topMovie;
   late Future<List<Movie>> upMovie;
   @override
   void initState() {
-    // TODO: implement initState
-
     super.initState();
     trendyMovie = Api().getTrendyMovies();
     topMovie = Api().getTopRatedMovies();
@@ -40,6 +37,11 @@ class _HomeScreenState extends State<HomeScreen> {
           filterQuality: FilterQuality.high,
         ),
         centerTitle: true,
+        actions: const [
+          // IconButton(onPressed: (){
+          //   Navigator.push(context,MaterialPageRoute(builder: (context)=> SearchScreen()) );
+          // }, icon: Icon(Icons.search))
+        ],
       ),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
@@ -62,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   }else if(snapshot.hasData){
                     return TrendingSlider(snapshot: snapshot,);
                   }else{
-                    return Center(child: CircularProgressIndicator(),);
+                    return const Center(child: CircularProgressIndicator(),);
                   }
                 }),
             const SizedBox(
@@ -83,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   }else if(snapshot.hasData){
                     return MoviesSlider(snapshot: snapshot,);
                   }else{
-                    return Center(child: CircularProgressIndicator(),);
+                    return const Center(child: CircularProgressIndicator(),);
                   }
                 }),
             const SizedBox(
@@ -104,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   }else if(snapshot.hasData){
                     return MoviesSlider(snapshot: snapshot,);
                   }else{
-                    return Center(child: CircularProgressIndicator(),);
+                    return const Center(child: CircularProgressIndicator(),);
                   }
                 }),
           ]),

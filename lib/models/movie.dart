@@ -1,6 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 class Movie {
-  // int? id;
+  int? id;
   // int? voteCount;
   String? title;
   String? backdropPath;
@@ -13,7 +13,7 @@ class Movie {
   // String? originalLanguage;
   // bool? video;
   Movie({
-    // this.id,
+    this.id,
     // this.voteCount,
     this.title,
     this.backdropPath,
@@ -37,7 +37,7 @@ class Movie {
       posterPath: json['poster_path'],
       releaseDate: json['release_date'],
       voteAverage: json['vote_average'],
-      // id: json['id'],
+      id: json['id'],
       // voteCount: json['voteCount'],
       // popularity: json['popularity'],
       // originalLanguage: json['originalLanguage'],
